@@ -1,30 +1,27 @@
 # src/marine-boids/main.py
-import pygame
 import random
+
+import pygame
+
+from . import boids
+from .constants import SCREEN
 
 def main() -> None:
     pygame.init()
-    screen = pygame.display.set_mode((1200, 720))
     clock = pygame.time.Clock()
     running = True
 
-
-    temp_boid = {
-            "name": "temp",
-            "pos": pygame.Vector2(random.randint(0,screen.get_width() // 2), random.randint(0,screen.get_height() // 2)) 
-        }
-
-    boids = [temp_boid]
+    boid_list = boids.generate_boids(4)
 
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
 
-        screen.fill("purple")
+        SCREEN.fill("purple")
 
-        for boid in boids:
-            pygame.draw.circle(screen, "red", boid["pos"], 40) 
+        for boid in boid_list:
+            pygame.draw.circle(SCREEN, "red", boid["position"], 40) 
 
         pygame.display.flip()
 

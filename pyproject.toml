@@ -7,7 +7,9 @@ authors = [
     { email = "kamouaferid@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pygame>=2.6.1",
+]
 
 [project.scripts]
 marine-boids = "marine_boids.main:main"
@@ -15,3 +17,8 @@ marine-boids = "marine_boids.main:main"
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

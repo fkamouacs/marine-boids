@@ -8,9 +8,12 @@ from .constants import SCREEN
 
 class Boid(TypedDict):
     id: NotRequired[str]
-    position: NotRequired[Vector2]
+    position: Vector2
+    velocity: Vector2
 
 def create_boid() -> Boid:
     return {
         "id": str(uuid.uuid4()),
-        "position": pygame.Vector2(random.randint(0,SCREEN.get_width()), random.randint(0,SCREEN.get_height()))  }
+        "position": pygame.Vector2(random.randint(0,SCREEN.get_width()), random.randint(0,SCREEN.get_height())),
+        "velocity": pygame.Vector2(random.randint(-1,1), random.randint(-1,1))
+    }

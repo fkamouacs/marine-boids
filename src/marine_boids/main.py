@@ -21,7 +21,8 @@ def main() -> None:
         SCREEN.fill("purple")
 
         for boid in boid_list:
-            pygame.draw.circle(SCREEN, "red", boid["position"], 40) 
+            pygame.draw.circle(SCREEN, "red", boid["position"], 40)
+            boid["position"] += boid["velocity"]
 
         pygame.display.flip()
 

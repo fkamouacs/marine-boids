@@ -2,12 +2,12 @@ import random
 
 from pygame import Vector2
 
-from marine_boids import types
+from marine_boids.types import Boid
 
-def generate_boids(amount: int) -> list[types.Boid]:
+def generate_boids(amount: int) -> list[Boid]:
     boids = []
     for i in range(amount):
-        new_boid = types.create_boid()
+        new_boid = Boid.create_boid(2,3)
         boids.append(new_boid)
 
     return boids

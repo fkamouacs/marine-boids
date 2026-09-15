@@ -15,11 +15,20 @@ export class Vector2 implements Point {
     this.y = y;
   }
 
+  equals(other: Vector2): boolean {
+    if (!other) return false;
+    return this.x == other.x && this.y == other.y;
+  }
+
   magnitude(): number {
     return Math.sqrt((this.x ** 2 + this.y ** 2));
   }
 
   magnitude_squared(): number {
     return this.x ** 2 + this.y ** 2;
+  }
+
+  plus(v: Vector2): Vector2 {
+    return new Vector2(this.x + v.x, this.y + v.y);
   }
 }
